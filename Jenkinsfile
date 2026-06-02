@@ -12,9 +12,9 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                echo 'Deploying...'
+                echo 'Deploying website...'
                 sh '''
-                    sudo cp -r /var/lib/jenkins/workspace/planet-deploy/* /var/www/html/
+                    sudo cp -r * /var/www/html/
                 '''
             }
         }
