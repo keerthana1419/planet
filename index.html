@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PlanetVerse - Explore the Solar System</title>
+  <link rel="stylesheet" href="planets.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">🪐 PlanetVerse</div>
+    <div class="nav-links">
+      <a href="#explore">Explore</a>
+      <a href="#" onclick="openModal('favModal')"><i class="fas fa-star"></i> Favourites</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="stars" id="stars"></div>
+    <div class="hero-content">
+      <p class="hero-sub">Our Solar System</p>
+      <h1>Explore the <span>Universe</span></h1>
+      <p class="hero-desc">Journey through the planets of our solar system. Discover their secrets, sizes, and stories.</p>
+      <a href="#explore" class="btn-primary">Start Exploring</a>
+      <h1 style="color: white;">Continous intergration and continous deployment  Test Successfully</h1>
+    </div>
+    <div class="orbit-ring"></div>
+  </section>
+
+  <!-- FILTER -->
+  <section class="filter-section" id="explore">
+    <div class="filter-pills">
+      <button class="pill active" onclick="filterPlanets('all', this)">All</button>
+      <button class="pill" onclick="filterPlanets('inner', this)">Inner Planets</button>
+      <button class="pill" onclick="filterPlanets('outer', this)">Outer Planets</button>
+      <button class="pill" onclick="filterPlanets('dwarf', this)">Dwarf Planets</button>
+    </div>
+  </section>
+
+  <!-- PLANETS GRID -->
+  <section class="planets-grid" id="planetsGrid"></section>
+
+  <!-- PLANET DETAIL MODAL -->
+  <div class="modal" id="planetModal">
+    <div class="modal-box">
+      <button class="close-btn" onclick="closeModal('planetModal')"><i class="fas fa-times"></i></button>
+      <div class="planet-detail">
+        <div class="detail-left">
+          <div class="planet-3d" id="detailPlanet"></div>
+          <div class="detail-stats">
+            <div class="stat-item"><span class="stat-label">Diameter</span><span class="stat-val" id="dDiameter"></span></div>
+            <div class="stat-item"><span class="stat-label">Distance from Sun</span><span class="stat-val" id="dDistance"></span></div>
+            <div class="stat-item"><span class="stat-label">Day Length</span><span class="stat-val" id="dDay"></span></div>
+            <div class="stat-item"><span class="stat-label">Year Length</span><span class="stat-val" id="dYear"></span></div>
+            <div class="stat-item"><span class="stat-label">Moons</span><span class="stat-val" id="dMoons"></span></div>
+            <div class="stat-item"><span class="stat-label">Temperature</span><span class="stat-val" id="dTemp"></span></div>
+          </div>
+        </div>
+        <div class="detail-right">
+          <span class="type-badge" id="dType"></span>
+          <h2 id="dName"></h2>
+          <p id="dDesc"></p>
+          <div class="fun-facts">
+            <h4><i class="fas fa-lightbulb"></i> Fun Facts</h4>
+            <ul id="dFacts"></ul>
+          </div>
+          <button class="btn-fav" id="favBtn" onclick="toggleFav()">
+            <i class="fas fa-star"></i> <span id="favBtnText">Add to Favourites</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAVOURITES MODAL -->
+  <div class="modal" id="favModal">
+    <div class="modal-box fav-modal-box">
+      <button class="close-btn" onclick="closeModal('favModal')"><i class="fas fa-times"></i></button>
+      <h2><i class="fas fa-star" style="color:#fbbf24"></i> My Favourites</h2>
+      <div id="favList"></div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script src="planets.js"></script>
+</body>
+</html>
